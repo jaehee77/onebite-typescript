@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "moduleDetection": "force" /* Control what method is used to detect module-format JS files. */,
+    // "force" : 타입스크립트 파일을 개별 모듈로 취급함
+
+    /* Modules */
+    "module": "ESNext" /* Specify what module code is generated. */,
+    "outDir": "dist" /* Specify an output folder for all emitted files. */,
+
+    /* Type Checking */
+    "strict": true /* Enable all strict type-checking options. */,
+    "strictNullChecks": false,
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  },
+  "include": ["src"] /* 어떤 폴더안에 있는 타입들을 체크할 것인지 설정 */,
+  "tsx": {
+    "esm": true
+  }
+}

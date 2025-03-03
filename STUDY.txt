@@ -1,0 +1,10 @@
+npm init
+npm i @types/node
+
+npm i -g tsx
+
+tsc --init // tsconfig.json 초기 생성
+
+// src/index.ts 파일에 콘솔 출력 테스트
+// 터미널에서 아래 명령어를 실행하면 노드 환경에서 ts 파일을 실행하여 자바스크립트를 실행할 수 있음
+tsx src/index.ts
