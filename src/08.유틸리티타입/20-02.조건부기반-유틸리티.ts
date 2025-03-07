@@ -51,7 +51,7 @@
    */
 
   function funcA() {
-    return "hello";
+    return 'hello';
   }
 
   function funcB() {
@@ -64,6 +64,22 @@
 
   {
     // custom Returntype 만들어보기
-    
+
+    type ReturnTypeCustom<T extends (...arg: any) => any> = T extends (
+      ...arg: any
+    ) => infer R
+      ? R
+      : never;
+
+    function funcA() {
+      return 'hello';
+    }
+
+    function funcB() {
+      return 10;
+    }
+
+    type RetrurnA = ReturnTypeCustom<typeof funcA>;
+    type RetrurnB = ReturnTypeCustom<typeof funcB>;
   }
 }
