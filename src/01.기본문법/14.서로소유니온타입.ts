@@ -5,19 +5,19 @@
 
 {
   type Admin = {
-    tag: "ADMIN";
+    tag: 'ADMIN';
     name: string;
     kickCount: number;
   };
 
   type Member = {
-    tag: "MEMBER";
+    tag: 'MEMBER';
     name: string;
     point: number;
   };
 
   type Guest = {
-    tag: "GUEST";
+    tag: 'GUEST';
     name: string;
     visitCount: number;
   };
@@ -32,13 +32,13 @@
    * 직관적이지 않은 코드
    */
   function login(user: User) {
-    if ("kickCount" in user) {
+    if ('kickCount' in user) {
       // admin 타입일 경우
       console.log(`${user.name}님 현재까지 ${user.kickCount}명 강퇴했습니다.`);
-    } else if ("point" in user) {
+    } else if ('point' in user) {
       // member 타입일 경우
       console.log(`${user.name}님 현재까지 ${user.point}점 보유하셨습니다.`);
-    } else if ("visitCount" in user) {
+    } else if ('visitCount' in user) {
       // guest 타입일 경우
       console.log(
         `${user.name}님은 현재까지 ${user.visitCount}번 방문하셨습니다.`
@@ -51,11 +51,11 @@
    * 직관적인 코드
    */
   function login2(user: User) {
-    if (user.tag === "ADMIN") {
+    if (user.tag === 'ADMIN') {
       console.log(`${user.name}님 현재까지 ${user.kickCount}명 강퇴했습니다.`);
-    } else if (user.tag === "MEMBER") {
+    } else if (user.tag === 'MEMBER') {
       console.log(`${user.name}님 현재까지 ${user.point}점 보유하셨습니다.`);
-    } else if (user.tag === "GUEST") {
+    } else if (user.tag === 'GUEST') {
       console.log(
         `${user.name}님은 현재까지 ${user.visitCount}번 방문하셨습니다.`
       );
@@ -65,19 +65,22 @@
   // 좀더 개선한 코드
   function login3(user: User) {
     switch (user.tag) {
-      case "ADMIN":
+      case 'ADMIN': {
         console.log(
           `${user.name}님 현재까지 ${user.kickCount}명 강퇴했습니다.`
         );
         break;
-      case "MEMBER":
+      }
+      case 'MEMBER': {
         console.log(`${user.name}님 현재까지 ${user.point}점 보유하셨습니다.`);
         break;
-      case "GUEST":
+      }
+      case 'GUEST': {
         console.log(
           `${user.name}님은 현재까지 ${user.visitCount}번 방문하셨습니다.`
         );
         break;
+      }
     }
   }
 }
@@ -89,7 +92,7 @@
    */
 
   type AsyncTask = {
-    state: "LOADING" | "FAILED" | "SUCCESS";
+    state: 'LOADING' | 'FAILED' | 'SUCCESS';
     error?: {
       message: string;
     };
@@ -100,20 +103,20 @@
 
   // 비동기 작업의 결과를 처리하는 객체
   const loading = {
-    state: "LOADING",
+    state: 'LOADING',
   };
 
   const failed = {
-    state: "FAILED",
+    state: 'FAILED',
     error: {
-      message: "오류 발생 원인은...",
+      message: '오류 발생 원인은...',
     },
   };
 
   const success = {
-    state: "SUCCESS",
+    state: 'SUCCESS',
     response: {
-      data: "데이터 성공...",
+      data: '데이터 성공...',
     },
   };
 
@@ -122,14 +125,15 @@
   // 성공 -> 성공 : 데이터를 출력
   function processTask(task: AsyncTask) {
     switch (task.state) {
-      case "LOADING":
-        console.log("로딩중");
-        break;0
-      case "FAILED":
+      case 'LOADING':
+        console.log('로딩중');
+        break;
+        0;
+      case 'FAILED':
         console.log(`실패 : ${task.error.message}`); // 타입 좁히기를 했는데 오류 발셍
         // console.log(`실패 : ${task.error?.message}`); // 이거를 원한 것이 아님
         break;
-      case "SUCCESS":
+      case 'SUCCESS':
         console.log(`성공 : ${task.response.data}`); // 타입 좁히기를 했는데 오류 발셍
         // console.log(`성공 : ${task.response!.data}`); // 이거를 원한 것이 아님
         break;
@@ -143,18 +147,18 @@
    */
 
   type LoadingTask = {
-    state: "LOADING";
+    state: 'LOADING';
   };
 
   type FailedTask = {
-    state: "FAILED";
+    state: 'FAILED';
     error: {
       message: string;
     };
   };
 
   type SuccessTask = {
-    state: "SUCCESS";
+    state: 'SUCCESS';
     response: {
       data: string;
     };
@@ -164,32 +168,32 @@
 
   // 비동기 작업의 결과를 처리하는 객체
   const loading = {
-    state: "LOADING",
+    state: 'LOADING',
   };
 
   const failed = {
-    state: "FAILED",
+    state: 'FAILED',
     error: {
-      message: "오류 발생 원인은...",
+      message: '오류 발생 원인은...',
     },
   };
 
   const success = {
-    state: "SUCCESS",
+    state: 'SUCCESS',
     response: {
-      data: "데이터 성공...",
+      data: '데이터 성공...',
     },
   };
 
   function processTask(task: AsyncTask) {
     switch (task.state) {
-      case "LOADING":
-        console.log("로딩중");
+      case 'LOADING':
+        console.log('로딩중');
         break;
-      case "FAILED":
+      case 'FAILED':
         console.log(`실패 : ${task.error.message}`); // 타입 좁히기를 했는데 오류 발셍
         break;
-      case "SUCCESS":
+      case 'SUCCESS':
         console.log(`성공 : ${task.response.data}`); // 타입 좁히기를 했는데 오류 발셍
         break;
     }
