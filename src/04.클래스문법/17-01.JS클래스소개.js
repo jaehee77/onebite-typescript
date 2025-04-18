@@ -126,7 +126,7 @@ import { log } from 'console';
     }
 
     programming() {
-      console.log(`${this.favoriteSkill}로 프로그래밍하고 있음ㄴ`);
+      console.log(`${this.favoriteSkill}로 프로그래밍하고 있음`);
     }
   }
 

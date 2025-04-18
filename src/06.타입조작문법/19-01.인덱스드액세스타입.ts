@@ -34,16 +34,16 @@
   }
 
   // 이름과 아이디를 붙여서 출력하는 함수가 있다고 가정..
-  function printAuthorInfo(author: { id: 1; name: "김재희" }) {
+  function printAuthorInfo(author: { id: 1; name: '김재희' }) {
     console.log(`${author.name}-${author.id}`);
   }
 
   const post: Post = {
-    title: "게시글 제목",
-    content: "게시글 본문",
+    title: '게시글 제목',
+    content: '게시글 본문',
     author: {
       id: 1,
-      name: "김재희",
+      name: '김재희',
       age: 40,
     },
   };
@@ -70,20 +70,20 @@
   // Post["author"] 여기서 ["author"]는 값이 아니라 타입이라는 점이다 !!!
 
   // 만약에 아래와 같이 정의한다면 오류가 발생
-  const key = "author";
+  const key = 'author';
   // key는 타입이 아니라 변수이자 곧 값이기 때문이다.
   // printAuthorInfo(author: Post[key] => 오류 발생
   // 즉, 인덱스드 액세스는 타입만 명시할 수 있다.
-  function printAuthorInfo(author: Post["author"]) {
+  function printAuthorInfo(author: Post['author']) {
     console.log(`${author.name}-${author.id}`);
   }
 
   const post: Post = {
-    title: "게시글 제목",
-    content: "게시글 본문",
+    title: '게시글 제목',
+    content: '게시글 본문',
     author: {
       id: 1,
-      name: "김재희",
+      name: '김재희',
       age: 40,
     },
   };
@@ -102,7 +102,7 @@
   }
 
   // id 만 뽑아오고 싶다면... 중첩으로 대괄호 사용
-  function printAuthorInfo(id: Post["author"]["id"]) {
+  function printAuthorInfo(id: Post['author']['id']) {
     // id인 number 타입을 뽑아옴
     console.log(`${id}`);
   }
@@ -124,7 +124,7 @@
     };
   }[];
 
-  function printAuthorInfo(author: PostList[number]["author"]) {
+  function printAuthorInfo(author: PostList[number]['author']) {
     console.log(`${author.name}-${author.id}`);
   }
 
@@ -132,22 +132,22 @@
   // 인덱스드 액세스타입을 이용할 때 대괄호 안에 number 타입을 넣어주면
   // 배열 타입으로부터 하나의 요소의 타입만 가져온다.
   const post: PostList[number] = {
-    title: "게시글 제목",
-    content: "게시글 본문",
+    title: '게시글 제목',
+    content: '게시글 본문',
     author: {
       id: 1,
-      name: "김재희",
+      name: '김재희',
       age: 40,
     },
   };
 
   // 숫자를 사용해도 가능(어떤 숫자든 가능)
   const post1: PostList[0] = {
-    title: "게시글 제목",
-    content: "게시글 본문",
+    title: '게시글 제목',
+    content: '게시글 본문',
     author: {
       id: 1,
-      name: "김재희",
+      name: '김재희',
       age: 40,
     },
   };

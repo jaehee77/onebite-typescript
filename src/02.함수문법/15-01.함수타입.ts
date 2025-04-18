@@ -30,15 +30,15 @@
    * 선택적 매개변수는 함수의 필수 매개변수 뒤에 위치해야 한다.
    */
 
-  function introduce(name = "김재희", age?: number) {
+  function introduce(name = '김재희', age?: number) {
     console.log(`name: ${name}`);
-    if (typeof age === "number") {
+    if (typeof age === 'number') {
       console.log(`age: ${age}`);
     }
   }
 
-  introduce("김재희", 20);
-  introduce("김재희"); // age 를 생략하고 싶다면 함수의 매개변수에 옵셔널 매개변수(선택적 매개변수)를 사용
+  introduce('김재희', 20);
+  introduce('김재희'); // age 를 생략하고 싶다면 함수의 매개변수에 옵셔널 매개변수(선택적 매개변수)를 사용
 
   function getSum(...rest: number[]) {
     // return rest.reduce((acc, cur) => acc + cur, 0);
