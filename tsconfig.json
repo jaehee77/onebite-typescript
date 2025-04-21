@@ -13,7 +13,9 @@
     "strict": true /* Enable all strict type-checking options. */,
     // "strictNullChecks": false,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "allowJs": true
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx"
   },
   "include": ["src"] /* 어떤 폴더안에 있는 타입들을 체크할 것인지 설정 */,
   "tsx": {
